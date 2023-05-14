@@ -117,6 +117,8 @@ async def add_new_media(m: m, state: s):
         database = await state.get_data()
         if m.document:
             file_id = m.document.file_id
+        elif m.audio:
+            file_id = m.audio.file_id
         elif m.text == "Chiqish":
             for media_id in read_all_media(media_type=database.get('changed_media_type'), day=database.get(
                     "changed_day")):
